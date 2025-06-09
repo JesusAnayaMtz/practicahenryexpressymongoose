@@ -16,8 +16,13 @@ const postController = (req, res) => {
     res.status(200).send('Estamos enviando informacion sobre posts')
 }
 
+const vehicleController = (req, res) => {
+    res.status(200).send('Estamos enviando informacion sobre vehiculos')
+}
+
 //exportamos el controller hacia routes
 module.exports = {
     userController,
-    postController
+    postController,
+    vehicleController
 }

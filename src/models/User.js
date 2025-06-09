@@ -5,7 +5,13 @@ const mongoose = require("mongoose");
 const userSchema = new mongoose.Schema({
     name: String,
     email: String,
-    age: Number
+    age: Number,
+    // Definimos el campo vehicle como una referencia a otro modelo
+    // Esto permite que el campo vehicle almacene un ObjectId que hace referencia a un documento en el modelo Vehicle
+    vehicle: {
+        type: mongoose.Schema.Types.ObjectId, // Definimos que el campo vehicle es un ObjectId
+        ref: "Vehicle" // Referencia al modelo Vehicle
+    }
  });
 
  // Creamos el modelo de usuario a partir del esquema

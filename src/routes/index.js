@@ -7,6 +7,7 @@ const {Router} = require("express");
 //importamos los routers hijos para que se puedan usar en este archivo
 const userRouter = require("./userRouter");
 const postRouter = require("./postRouter");
+const vehicleRouter = require("./vehicleRouter");
 
 //este modulo(index.js) sera nuestro enrutador principal
 
@@ -17,6 +18,8 @@ const router = Router();
 //que se definio en el router hijo
 router.use("/users", userRouter);
 router.use("/posts", postRouter);
+router.use("/vehicles", vehicleRouter); // Importamos y usamos el router de vehículos
+
 
 
 //ahora vamos a exportar el objeto router que es el que va a manejar las rutas
