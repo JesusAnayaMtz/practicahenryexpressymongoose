@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 // URI de conexión a la base de datos MongoDB
-let uri = "mongodb+srv://jmtz201289:VX25DzZBARRXri17@pruebahenry.likdpje.mongodb.net/pruebausuarios?retryWrites=true&w=majority";
+let uri = "mongodb+srv://jmtz201289:{password}@pruebahenry.likdpje.mongodb.net/pruebausuarios?retryWrites=true&w=majority";
 
 
 // Función para conectar a la base de datos es una función asíncrona
