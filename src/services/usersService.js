@@ -9,7 +9,7 @@ module.exports = {
       //por lo que debemos esperar a que se resuelva la promesa
       //y luego devolver el resultado
       //en este caso devolvemos todos los usuarios
-      const users = await User.find();
+      const users = await User.find().populate('vehicle'); //populate es un metodo de mongoose que nos permite traer los datos de un campo relacionado
       //retornamos los usuarios encontrados
       return users;
     },
@@ -29,7 +29,7 @@ module.exports = {
     getUserById: async (id) => {
       // Utilizamos el modelo User para buscar un usuario por su ID
       //el metodo findById() de mongoose devuelve una promesa
-      const user = await User.findById(id);
+      const user = await User.findById(id).populate('vehicle'); //populate es un metodo de mongoose que nos permite traer los datos de un campo relacionado
       return user;
     },
 
@@ -37,7 +37,7 @@ module.exports = {
       // Utilizamos el modelo User para buscar un usuario por su nombre
       //el metodo findOne() de mongoose devuelve una promesa 
       //y busca un unico usuario que coincida con el nombre proporcionado
-      const user = await User.findOne({name}); //Aqui estamos usando la sintaxis de objeto para buscar por nombre ya que valida que el nombre sea igual al proporcionado
+      const user = await User.findOne({ name }).populate("vehicle"); //Aqui estamos usando la sintaxis de objeto para buscar por nombre ya que valida que el nombre sea igual al proporcionado
       //retornamos el usuario encontrado
       return user;
     },

@@ -55,7 +55,7 @@ module.exports = {
 
   addVehicle: async (req, res) => {
     const {userId,vehicleId} = req.body; // Obtenemos el ID del usuario y del vehículo desde el cuerpo de la solicitud
-    await usersService.addVehicle(userId, vehicleId);
+    await usersService.addVehicle({userId, vehicleId}); //debe ir entre llaves ya que es un objeto
     res.status(200).json({ message: 'Vehículo agregado al usuario correctamente' }); // Devolvemos un mensaje de éxito
   }
 };

@@ -15,10 +15,11 @@ userRouter.get("/byName", userController.getUserByName); // Agregamos una ruta p
 // en este caso no se le agrega el parametro :name ya que se envia en el body de la peticion
 //todas la rutas que dle metodo get que reciben por parametro otro valor que no es id deben estar por encima de la ruta que recibe el id ya que 
 //si no se ejecutaria primero la ruta que recibe el id y no se ejecutaria la ruta que recibe el nombre
+userRouter.put("/addVehicle", userController.addVehicle);
 
 userRouter.get("/:id", userController.getUserById); // Agregamos una ruta para obtener un usuario por ID
 
-userRouter.put("/users/addVehicle", userController.addVehicle);
+
 
 //exportamos la variable userRouter
 module.exports = userRouter;

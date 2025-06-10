@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema({
     // Esto permite que el campo vehicle almacene un ObjectId que hace referencia a un documento en el modelo Vehicle
     vehicle: {
         type: mongoose.Schema.Types.ObjectId, // Definimos que el campo vehicle es un ObjectId
-        ref: "Vehicle" // Referencia al modelo Vehicle
+        ref: "Vehicle", // Referencia al modelo Vehicle
     }
  });
 
