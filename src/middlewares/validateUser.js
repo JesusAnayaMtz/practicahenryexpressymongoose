@@ -1,3 +1,5 @@
+const mongoose = require("mongoose")
+
 //Creamos un middleware para validar el nombre del usuario
 const validateUser = (req, res, next) => {
     //obtener el nombre del usuario del cuerpo de la peticion
@@ -14,6 +16,18 @@ const validateUser = (req, res, next) => {
     }
 };
 
+//creamos una funcion la cual se encargada de validar el id del usuario 
+const validateId = (req, res,next) => {
+    const {id} = req.params; //pasamos por queryparams el id
+    //validamos con una funcion que tiene mongoose el cual valida si es el id es valido y retorna true o false
+    //si todo sale bien se aplica next y si no se aplica next para que muestre el error personalizado con su estatus esto se manda directo a nuestro modulo server
+    if(mongoose.Types.ObjectId.isValid(id)){
+        next();
+    }else {
+        next({message: "Id Invalido", statusCode: 400}); //al ser un objeto se le puede agregar varias propiedades
+    }
+};
+
 // Exportamos el middleware para que pueda ser utilizado en las rutas 
 //debemos analizar donde usaremos este middleware, en el router de usuarios
-module.exports = validateUser;
+module.exports = {validateUser, validateId};
