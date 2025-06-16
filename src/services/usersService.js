@@ -1,4 +1,5 @@
 const User = require("../models/User");
+const formatAge = require("../helpers/formatAge");
 
 
 module.exports = {
@@ -20,7 +21,7 @@ module.exports = {
       //el metodo create() de mongoose devuelve una promesa
       //por lo que debemos esperar a que se resuelva la promesa
       //y luego devolver el resultado
-      const newUser = await User.create(user);
+      const newUser = await User.create({ ...user, age: formatAge(user.age) }); //utilizamos el operador spread para copiar los datos del usuario proporcionado y agregar el campo age con el valor calculado por la funcion formatAge
       //retornamos el usuario creado
       return newUser;
     },
